@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">BlueBlank</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <h3 class="text-primary">Transferência bancária</h3>
+
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="number" class="form-control" placeholder="Agência"/>
+          <input type="text" class="form-control" placeholder="Conta corrente"/>
+          <select class="form-control">
+            <option value="origem">Origem</option>
+            <option value="destino">Destino</option>
+          </select>
+          <button class="btn btn-default">Adicionar</button>
+        </div>
+      </form>
+
+      <div class="render-container">
+      </div>
+
+    </div>
+    <!-- scripts -->
+    <script type="text/jsx" src="/scripts/all.js"></script>
+  </body>
+</html>
