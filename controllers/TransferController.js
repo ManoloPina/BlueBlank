@@ -1,9 +1,5 @@
 'use strict';
 
- const React = require('react');
- const ReactDOM = require('react-dom');
- const $ = require('jquery');
-
  class TransferController extends React.Component {
    constructor(props) {
      super(props);
@@ -19,4 +15,6 @@
 
  }
 
- ReactDOM.render(<TransferController/>, $('.render-container')[0]);
+ new TransferController();
+
+ // ReactDOM.render(<TransferController/>, $('.render-container')[0]);
