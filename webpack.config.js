@@ -7,7 +7,8 @@ module.exports = {
     ]
   },
   node: {
-    fs: 'fs-extra'
+    fs: 'fs-extra',
+    path: 'path'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
@@ -16,5 +17,6 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     })
-  ]
+  ],
+  target: 'node'
 };
