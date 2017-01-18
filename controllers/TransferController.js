@@ -1,6 +1,7 @@
 'use strict';
 
  class TransferController extends React.Component {
+
    constructor(props) {
      super(props);
      console.log("Classe em funcionamento!");
@@ -12,9 +13,6 @@
      );
    }
 
-
  }
 
- new TransferController();
-
- // ReactDOM.render(<TransferController/>, $('.render-container')[0]);
+ ReactDOM.render(<TransferController/>, $('.render-container')[0]);

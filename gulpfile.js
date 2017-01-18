@@ -2,11 +2,11 @@ const gulp = require('gulp');
 const webpackStream = require('webpack-stream');
 const rename = require('gulp-rename');
 const notify = require('gulp-notify');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
 
-gulp.task('js', () => {
-  gulp.src(['./controllers/**/*.js'])
-  .pipe(concat('all.js'))
-  .pipe(gulp.dest('./public/scripts'));
+gulp.task('default', ['watch'], () => {
+  console.log('Default on going!');
 });
 
 gulp.task('webpack', () => {
@@ -21,4 +21,27 @@ gulp.task('webpack', () => {
     title: 'Compiled...',
     onLast: true
   }));
+});
+
+gulp.task('dependencies', () => {
+  gulp.src([
+    './node_modules/jquery/dist/jquery.min.js',
+    './node_modules/bootstrap/dist/js/bootstrap.min.js',
+    './node_modules/react/dist/react.min.js',
+    './node_modules/react-dom/dist/react-dom.min.js'
+  ])
+  .pipe(concat('dependencies.js'))
+  .pipe(gulp.dest('./public/scripts'));
+
+  gulp.src([
+    './node_modules/bootstrap/dist/css/bootstrap.min.css'
+  ])
+  .pipe(concat('dependencies.css'))
+  .pipe(cleanCSS())
+  .pipe(gulp.dest('./public/stylesheets'))
+  .pipe(notify('Dependencies created...'));
+});
+
+gulp.task('watch', () => {
+  gulp.watch(['./controllers/**/*.js'], ['webpack']);
 });
