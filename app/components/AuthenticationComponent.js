@@ -1,11 +1,11 @@
 'use strict';
 
-import HeaderController from './HeaderController';
+import HeaderComponent from './HeaderComponent';
 import Validator from 'validator';
 const Constants = require('../Constants');
 const NotificationSystem = require('react-notification-system');
 
-class AuthenticationController extends React.Component {
+class AuthenticationComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -58,12 +58,10 @@ class AuthenticationController extends React.Component {
   render() {
     return (
       <div>
-        <HeaderController/>
+        <HeaderComponent/>
         <div className="container">
           <NotificationSystem ref="notificationSystem"/>
-
           {this.alertBox}
-
           <h2 className="text-primary">Acesso ao sitema</h2>
           <div className="jumbotron">
             {this.loginBox}
@@ -128,5 +126,5 @@ class AuthenticationController extends React.Component {
 }
 
 if($('#authenticate-controller').get(0)) {
-  ReactDOM.render(<AuthenticationController/>, $('#authenticate-controller').get(0));
+  ReactDOM.render(<AuthenticationComponent/>, $('#authenticate-controller').get(0));
 }

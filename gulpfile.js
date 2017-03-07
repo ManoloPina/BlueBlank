@@ -11,7 +11,7 @@ gulp.task('default', ['watch'], () => {
 });
 
 gulp.task('webpack', () => {
-   gulp.src('./app/controllers/**/*.js')
+   gulp.src('./app/components/**/*.js')
   .pipe(webpackStream(require('./webpack.config')))
   .on('error', function handleError() {
       this.emit('end'); // Recover from errors
@@ -56,6 +56,6 @@ gulp.task('images', () => {
 gulp.task('watch', () => {
   gulp.watch([
 		'./app/styles/less/*.less',
-		'./app/controllers/**/*.js'
+		'./app/components/**/*.js'
 	], ['less', 'webpack']);
 });

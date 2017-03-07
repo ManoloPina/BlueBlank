@@ -1,17 +1,14 @@
 'use strict';
 
-import EstoqueController from './EstoqueController';
 const Helpers = require('../Helpers');
 const _ = require('underscore');
 
-class HeaderController extends React.Component {
+class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.estoqueController = new EstoqueController();
   }
 
   componentDidMount() {
-    console.log('modulos', typeof this.modules);
   }
 
   render() {
@@ -19,10 +16,9 @@ class HeaderController extends React.Component {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="/">Toque Mágico ERP</a>
+            <a className="navbar-brand" href="/">BlueBank</a>
           </div>
           <ul className="nav navbar-nav menu">
-            {this.modulesList}
           </ul>
         </div>
       </nav>
@@ -48,25 +44,6 @@ class HeaderController extends React.Component {
     );
   }
 
-  get modulesList() {
-    let enableModules = ['usuarios', 'estoque', 'vendas', 'dispesas'];
-    let list = this.modules.map(module => {
-      if($.inArray(module, enableModules) != -1) {
-        return (
-          <div>
-            {this[module+'Controller'].menu}
-          </div>
-        );
-      }
-      enableModules = _.without(enableModules, module);
-    });
-    return list;
-  }
-
-  get modules() {
-    return sessionStorage.getItem('modulos').split(',');
-  }
-
 }
 
-export default HeaderController;
+export default HeaderComponent;

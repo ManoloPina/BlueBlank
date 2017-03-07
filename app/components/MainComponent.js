@@ -1,16 +1,12 @@
 'use strict';
 
-import HeaderController from './HeaderController';
-import PainelController from './PainelController';
-import EstoqueController from './EstoqueController';
+import HeaderComponent from './HeaderComponent';
 
-class MainController extends React.Component {
+class MainComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.estoqueController = new EstoqueController();
     this.state = {};
-    this.state.view = <PainelController/>;
   }
 
   componentDidMount() {
@@ -21,7 +17,6 @@ class MainController extends React.Component {
     return (
       <div>
         <HeaderController/>
-        {this.state.view}
       </div>
     );
   }
@@ -39,5 +34,5 @@ class MainController extends React.Component {
 }
 
 if($('#main-controller').get(0)) {
-  ReactDOM.render(<MainController/>, $('#main-controller').get(0));
+  ReactDOM.render(<MainComponent/>, $('#main-controller').get(0));
 }
