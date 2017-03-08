@@ -2,7 +2,7 @@
 
 const Connection = require('./Connection');
 
-class Users extends Connection {
+class Account extends Connection {
 
   constructor() {
     super();
@@ -10,7 +10,7 @@ class Users extends Connection {
 
   find(query, sortObject = {}) {
     return new Promise((resolve, reject) => {
-      this.findDocuments('usuarios', query, sortObject).then(data => {
+      this.findDocuments('conta', query, sortObject).then(data => {
         resolve(data);
       });
     });
@@ -18,4 +18,4 @@ class Users extends Connection {
 
 }
 
-module.exports = Users;
+module.exports = Account;

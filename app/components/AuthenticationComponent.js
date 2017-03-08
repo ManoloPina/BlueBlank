@@ -62,7 +62,6 @@ class AuthenticationComponent extends React.Component {
         <div className="container">
           <NotificationSystem ref="notificationSystem"/>
           {this.alertBox}
-          <h2 className="text-primary">Acesso ao sitema</h2>
           <div className="jumbotron">
             {this.loginBox}
           </div>
@@ -74,16 +73,18 @@ class AuthenticationComponent extends React.Component {
   get loginBox() {
     return (
       <form action="/authenticate" method="post">
-        <div className="form-group">
-          <input className="form-control" type="text" name="email" ref="emailText" placeholder="email"/>
+        <div className="row">
+          <div className="form-group col-sm-4">
+            <input className="form-control" type="text" name="agencia" ref="agenciaText" placeholder="Agência"/>
+          </div>
+          <div className="form-group col-sm-4">
+            <input className="form-control" type="text" ref="contaCorrenteText" name="conta" placeholder="conta"/>
+          </div>
+          <div className="form-group col-sm-4">
+            <button className="btn btn-success btn-block" ref="loginBtn">Acessar</button>
+          </div>
         </div>
-        <div className="form-group">
-          <input className="form-control" type="password" ref="passwordText" name="password" placeholder="Senha"/>
-        </div>
-        <div className="form-group">
-          <button className="btn btn-success" ref="loginBtn">Login</button>
-          <button className="btn btn-primary" ref="retrivePassBtn">Recuperar senha</button>
-        </div>
+
       </form>
     );
   }
@@ -111,8 +112,8 @@ class AuthenticationComponent extends React.Component {
     return $(this.refs.passwordText);
   }
 
-  get $emailText() {
-    return $(this.refs.emailText);
+  get $agenciaText() {
+    return $(this.refs.agenciaText);
   }
 
   get $alertBox() {
@@ -125,6 +126,6 @@ class AuthenticationComponent extends React.Component {
 
 }
 
-if($('#authenticate-controller').get(0)) {
-  ReactDOM.render(<AuthenticationComponent/>, $('#authenticate-controller').get(0));
+if($('#authenticate-component').get(0)) {
+  ReactDOM.render(<AuthenticationComponent/>, $('#authenticate-component').get(0));
 }

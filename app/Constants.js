@@ -7,7 +7,7 @@ class Constants {
   }
 
   static get DB_PATH() {
-    return "mongodb://localhost:27017/toque_magico_erp";
+    return "mongodb://localhost:27017/blue_bank";
   }
 
   static get baseUrl() {
