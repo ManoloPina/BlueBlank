@@ -16,8 +16,17 @@ class AuthenticationComponent extends React.Component {
 
   componentDidMount() {
     this.notificationSystem = this.refs.notificationSystem;
+    this.$agenciaText.inputmask('9999');
+    this.$contaCorrenteText.inputmask('99999-9');
     this.$alertBox.hide();
-    this.$loginBtn.on('click', this.login.bind(this));
+    this.$checkAccountBtn.on('click', this.checkAccount.bind(this));
+  }
+
+  checkAccount(event) {
+    event.preventDefault();
+    console.log('Manolo');
+    let agencia = this.$agenciaText.val();
+    let conta = this.$contaCorrenteText.val();
   }
 
   login() {
@@ -78,10 +87,10 @@ class AuthenticationComponent extends React.Component {
             <input className="form-control" type="text" name="agencia" ref="agenciaText" placeholder="Agência"/>
           </div>
           <div className="form-group col-sm-4">
-            <input className="form-control" type="text" ref="contaCorrenteText" name="conta" placeholder="conta"/>
+            <input className="form-control" type="text" ref="$contaCorrenteText" name="conta" placeholder="conta"/>
           </div>
           <div className="form-group col-sm-4">
-            <button className="btn btn-success btn-block" ref="loginBtn">Acessar</button>
+            <button className="btn btn-success btn-block" ref="checkAccountBtn">Acessar</button>
           </div>
         </div>
 
@@ -100,8 +109,8 @@ class AuthenticationComponent extends React.Component {
     );
   }
 
-  get $loginBtn() {
-    return $(this.refs.loginBtn);
+  get $checkAccountBtn() {
+    return $(this.refs.checkAccountBtn);
   }
 
   get $retrivePassBtn() {
@@ -114,6 +123,10 @@ class AuthenticationComponent extends React.Component {
 
   get $agenciaText() {
     return $(this.refs.agenciaText);
+  }
+
+  get $contaCorrenteText() {
+    return $(this.refs.$contaCorrenteText);
   }
 
   get $alertBox() {

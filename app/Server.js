@@ -6,7 +6,7 @@ const multer = require('multer');
 const Authentication = require('./Authentication');
 const Constants = require('./Constants');
 const bodyParser = require('body-parser');
-const Users = require('./models/Users');
+const Account = require('./models/Account');
 const GrupoAcesso = require('./models/GrupoAcesso');
 const Connection = require('./models/Connection');
 const session = require('express-session')
@@ -18,7 +18,7 @@ class Server {
     this.parseUrlencoded = bodyParser.urlencoded({ extended: false });
     this.indexPage = path.join(__dirname, 'views', 'index.ejs');
     this.connection = new Connection();
-    this.users = new Users();
+    this.account = new Account();
     this.grupoAcesso = new GrupoAcesso();
     this.initialize();
   }
@@ -40,6 +40,7 @@ class Server {
     //Authentication router
     this.express.use(this.authenticantion.authenticate.bind(this));
     this.express.post('/authenticate', this.parseUrlencoded, this.authenticantion.post.bind(this));
+    this.express.post('/verify-account', this.parseUrlencoded, this.authenticantion.verifyAccount.bind(this));
 
     this.express.get('/', (request, response) => {
       response.render(this.indexPage);

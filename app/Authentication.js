@@ -10,7 +10,7 @@ class Authentication {
   }
 
   authenticate(request, response, next) {
-    if(request.url != '/authenticate' && !request.session.userId) {
+    if(request.url != '/authenticate' || request.url != '/verify-account'  && !request.session.userId) {
       response.render(path.join(__dirname, 'views', 'authentication.ejs'));
     }
     next();
@@ -46,6 +46,10 @@ class Authentication {
       }
 
     });
+  }
+
+  verifyAccount(request, reponse) {
+    response.json('checando usuário');
   }
 
 
