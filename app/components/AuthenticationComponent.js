@@ -123,10 +123,10 @@ class AuthenticationComponent extends React.Component {
       <form action="/authenticate" method="post">
         <div className="row" ref="contaBox">
           <div className="form-group col-sm-4">
-            <input className="form-control" type="text" name="agencia" defaultValue="3028" ref="agenciaText" placeholder="Agência"/>
+            <input className="form-control" type="text" name="agencia" ref="agenciaText" placeholder="Agência"/>
           </div>
           <div className="form-group col-sm-4">
-            <input className="form-control" type="text" ref="$contaCorrenteText" defaultValue="890318" name="conta" placeholder="conta"/>
+            <input className="form-control" type="text" ref="$contaCorrenteText" name="conta" placeholder="conta"/>
           </div>
           <div className="form-group col-sm-4">
             <button className="btn btn-primary btn-block" ref="checkAccountBtn">{this.state.acessoText}</button>

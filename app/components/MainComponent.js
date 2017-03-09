@@ -101,17 +101,17 @@ class MainComponent extends React.Component {
               <div className="row">
                 <div className="form-group col-sm-4">
                   <label>Agência</label>
-                  <input className="form-control" type="text" ref="agenciaText" defaultValue="4895"/>
+                  <input className="form-control" type="text" ref="agenciaText"/>
                 </div>
                 
                 <div className="form-group col-sm-4">
                   <label>Conta</label>
-                  <input className="form-control" type="text" ref="contaCorrenteText" defaultValue="111438"/>
+                  <input className="form-control" type="text" ref="contaCorrenteText"/>
                 </div>
 
                 <div className="form-group col-sm-4">
                   <label>Valor:</label>
-                  <input className="form-control" type="text" ref="valorText" />
+                  <input className="form-control" type="text" ref="valorText"/>
                 </div>
                 <div className="col-xs-12">
                   <button className="btn btn-success btn-block" ref="transferirBtn">Transferir</button>
