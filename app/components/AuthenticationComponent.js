@@ -90,7 +90,7 @@ class AuthenticationComponent extends React.Component {
         type: 'post'
       }).done(response => {
         if(response.message) this.notificationComponent.add(`${response.message}`, 'warning');
-        console.log('response', response);
+        sessionStorage.setItem('userId', response.userId);
         if(response.redirect) window.location.replace(response.redirect);
       })
       .fail(err => {

@@ -941,6 +941,10 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
+bson-objectid@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/bson-objectid/-/bson-objectid-1.1.5.tgz#4b9e210a98c1c4eaa9edf63aca0784cb30b79b5e"
+
 bson@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/bson/-/bson-1.0.4.tgz#93c10d39eaa5b58415cbc4052f3e53e562b0b72c"
