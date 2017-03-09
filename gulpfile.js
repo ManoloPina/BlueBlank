@@ -32,8 +32,8 @@ gulp.task('less', () => {
 gulp.task('dependencies', () => {
   gulp.src([
     './node_modules/jquery/dist/jquery.min.js',
-		'./node_modules/react/dist/react.min.js',
-		'./node_modules/react-dom/dist/react-dom.min.js',
+		'./node_modules/react/dist/react.js',
+		'./node_modules/react-dom/dist/react-dom.js',
     './node_modules/bootstrap/dist/js/bootstrap.min.js',
     './node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js'
   ])

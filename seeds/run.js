@@ -3,6 +3,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const Constants = require('../app/Constants');
+const bcrypt = require('bcrypt');
+
 
 class Seeds {
   constructor() {
@@ -13,8 +15,8 @@ class Seeds {
             cpf: `${Math.floor((Math.random() * 999999999) + 100000000)}`,
             numero: `${Math.floor((Math.random() * 999999) + 100000)}`,
             agencia: `${Math.floor((Math.random() * 9999) + 1000)}`,
-            senha: `${Math.floor((Math.random() * 9999) + 1000)}`,
-            saldo: `${Math.floor((Math.random() * 10000) + -10)}`
+            senha: bcrypt.hashSync('3103', 10),
+            saldo: Math.floor((Math.random() * 10000) + -1000)
           }).then(result => {
             if(result.result.n) {
               console.log('Seed created');

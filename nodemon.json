@@ -1,6 +1,6 @@
 {
   "ignore": [
-    "app/controllers/*.js",
+    "app/components/*.js",
     "gulpfile.js",
     "vendor/js/*"
   ]

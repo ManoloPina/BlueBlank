@@ -16,14 +16,18 @@ class MainComponent extends React.Component {
   render() {
     return (
       <div>
-        <HeaderController/>
+        <HeaderComponent/>
+        <div className="row">
+          <div className="col-sm-12">
+            <h1>Transferências</h1>  
+          </div>
+        </div>
       </div>
     );
   }
 
   setView(event) {
     let controller = $(event.target).data('view');
-    console.log('controller', controller);
     this.setState({view: this[controller].component});
   }
 

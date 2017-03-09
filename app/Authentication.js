@@ -10,32 +10,25 @@ class Authentication {
   }
 
   authenticate(request, response, next) {
-    if(request.url != '/authenticate' || request.url != '/verify-account'  && !request.session.userId) {
+    if(request.url != '/authenticate' && request.url != '/verify-account'  && !request.session.userId) {
       response.render(path.join(__dirname, 'views', 'authentication.ejs'));
     }
     next();
   }
 
-
   post(request, response) {
 
-    let userEmail = request.body.email;
-    let password = request.body.password;
-
-    this.users.find({email: userEmail}).then(data => {
+    let agencia = request.body.agencia;
+    let numero = request.body.numero;
+    let password = request.body.senha;
+    console.log('agencia', agencia, 'numero', numero, 'senha', password);
+    this.account.find({agencia: agencia, numero: numero}).then(data => {
 
       if(data.length > 0) {
         Bcrypt.compare(password, data[0].senha, (err, result) => {
           if(result) {
             request.session.userId = data[0]._id;
-            this.grupoAcesso.find({nome: data[0].grupo}).then(grupo => {
-              request.session.modulos = grupo[0].modulos;
-              response.json({
-                message: 'Usuário logado',
-                modulos: grupo[0].modulos,
-                redirect: '/'
-              });
-            });
+            response.json({userId: data[0]._id, redirect: '/'});
           }else {
             response.json({message: 'Senha incorreta'});
           }
@@ -48,8 +41,13 @@ class Authentication {
     });
   }
 
-  verifyAccount(request, reponse) {
-    response.json('checando usuário');
+  verifyAccount(request, response) {
+    let agencia = request.body.agencia;
+    let conta = request.body.conta;
+    this.account.find({agencia: agencia, numero: conta})
+    .then(result => {
+      response.json(result);
+    });
   }
 
 
